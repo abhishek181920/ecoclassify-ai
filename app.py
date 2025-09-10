@@ -242,17 +242,17 @@ Upload an image or take a photo to get started!
 st.sidebar.header("How it works")
 st.sidebar.markdown("""
 1. **Upload** an image of waste or **take a photo** using your camera
-2. **AI Analysis** using EfficientNetV2B1 (TFLite model)
+2. **AI Analysis** using ResNet50V2 (TFLite model)
 3. **Classification** with confidence score
 4. **Recycling Tips** for the detected waste type
 """)
 st.sidebar.markdown("---")
 st.sidebar.header("📈 Model Information")
-total_params = "N/A with TFLite model"
+total_params = 23561152  # Number of trainable parameters in ResNet50V2 base + your dense layers
 st.sidebar.info(f"""
 **Model Details:**
-- Architecture: EfficientNetV2B1 converted to TFLite
-- Total Parameters: {total_params}
+- Architecture: ResNet50V2 with custom classification head (converted to TFLite)
+- Total Parameters: {total_params:,}
 - Input Size: 224x224x3
 - Classes: {len(CLASS_NAMES)}
 """)
